@@ -59,8 +59,8 @@ resource "azurerm_windows_web_app" "app_1" {
 }
 
 resource "azurerm_windows_web_app_slot" "staging" {
-  name                = "staging"
-  service_plan_id     = azurerm_service_plan.app_1.id
+  name           = "staging"
+  app_service_id = azurerm_windows_web_app.app_1.id
 
   site_config {
 
@@ -99,6 +99,6 @@ resource "azurerm_windows_web_app_slot" "staging" {
         priority   = 400
       }
     }
-    
+
   }
 }
